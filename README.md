@@ -1,4 +1,4 @@
-# daily_java
+# Daily Java Content
 
 100 uninterrupted days practicing content about Java
 
