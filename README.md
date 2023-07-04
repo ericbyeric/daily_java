@@ -2,7 +2,7 @@
 
 100 uninterrupted days practicing content about Java
 
-## Day1 - Generating a random number within a specific range
+## Day 1 - Generating a random number within a specific range (`SecureRandom`)
 ```java
 import java.security.SecureRandom;
 
@@ -19,5 +19,22 @@ public final class Day001 {
         return SECURE_RANDOM.nextInt(maximum - minimum) + minimum;
     }
 
+}
+```
+
+
+## Day 2 - Formatting a `LocalDatetime` object
+```java
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+public class Day002 {
+    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+
+    public static void main(String[] args){
+        LocalDateTime currentDateTime = LocalDateTime.now();
+        String formatted = currentDateTime.format(FORMATTER);
+        System.out.println("formatted = " + formatted);
+    }
 }
 ```
