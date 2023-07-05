@@ -2,7 +2,8 @@
 
 100 uninterrupted days practicing content about Java
 
-## Day 1 - Generating a random number within a specific range (`SecureRandom`).
+## Day 1 - Generating a random number within a specific range.
+- `SecureRandom`
 ```java
 import java.security.SecureRandom;
 
