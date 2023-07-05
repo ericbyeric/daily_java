@@ -41,6 +41,8 @@ public class Day002 {
 ```
 
 ## Day 3 - Scheduling a task to run every 2 seconds.
+- `ScheduledExecutorService`, `Executors.newSingleThreadScheduledExecutor()`
+- `Thread`
 ```java
 import java.time.LocalTime;
 import java.util.concurrent.Executors;
