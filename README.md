@@ -139,5 +139,55 @@ public class Day004 {
         }
     }
 }
+```
+
+## Day 5 - Creating a list with filtered items from other lists
+- What to do: Concatenate all the musicians and filter guitar players only
+- `record`
+- Stream
+  - 중간 연산: `Stream.concat()`, `filter()`, `map()`
+  - 최종 연산: `collect()`
+```java
+public class Day005 {
+    private static final String GUITAR = "Guitar";
+    private static final String DRUMS = "Drums";
+    private static final String BASS = "Bass";
+    private static final String VOCALS = "Vocals";
+    private static final String KEYBOARDS = "Keyboards";
+    public static void main(String[] args) {
+        List<BandMember> pinkFloyd = List.of(
+                new BandMember("David Gilmour", GUITAR),
+                new BandMember("Roger Waters", BASS),
+                new BandMember("Richard Wright", KEYBOARDS),
+                new BandMember("Nick Mason", DRUMS)
+        );
+
+        List<BandMember> ironMaiden = List.of(
+                new BandMember("Bruce Dickinson", VOCALS),
+                new BandMember("Steve Harris", BASS),
+                new BandMember("Adrian Smith", GUITAR),
+                new BandMember("Dave Murray", GUITAR),
+                new BandMember("Nicko McBrain", DRUMS)
+        );
+
+        List<BandMember> blackSabbath = List.of(
+                new BandMember("Ozzy Osbourne", VOCALS),
+                new BandMember("Geezer Butler", BASS),
+                new BandMember("Toni Iommi", GUITAR),
+                new BandMember("Bill Ward", DRUMS)
+        );
+
+        // All musicians
+        Stream<BandMember> allMusicians = Stream.concat(Stream.concat(pinkFloyd.stream(), ironMaiden.stream()), blackSabbath.stream());
+
+        // Guitar players
+        List<String> guitarPlayers = allMusicians.filter(member -> GUITAR.equals(member.instrument))
+                .map(BandMember::name)
+                .collect(Collectors.toList());
+
+        System.out.println(guitarPlayers);
+    }
+    static record BandMember(String name, String instrument){}
+}
 
 ```
